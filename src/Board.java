@@ -1,13 +1,17 @@
+//creates the board
 public class Board {
     private char[][] board;
     private int moveCount;
 
     public Board() {
+        //Creates the board with empty characters sets size to 3x3
         board = new char[3][3];
         moveCount = 0;
     }
-
+    
+    
     public boolean makeMove(int row, int col, char player) {
+        // Check if the move is valid (within bounds and cell is empty)
         if (board[row][col] == '\0') {
             board[row][col] = player;
             moveCount++;
@@ -35,10 +39,13 @@ public class Board {
     }
 
     public boolean isFull() {
+        // Check if the board is full (no empty cells) which occurs after 9 moves
         return moveCount == 9;
     }
 
     public void reset() {
+        // Resets the board to empty characters and move count to 0
+        //Might build this out into a utility class later
         board = new char[3][3];
         moveCount = 0;
     }
